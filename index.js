@@ -12,3 +12,13 @@ function addNewPizza(pizzaObj) {
     menu.push(pizzaObj);
 }
 
+function placeOrder(pizzaName) {
+    const selectedPizza = menu.find(pizzaObj => pizzaObj.name === pizzaName);
+    cashInRegister += selectedPizza.price;
+    const newOrder = {
+        pizza: selectedPizza,
+        status: 'ordered'
+    }
+    orderQueue.push(newOrder);
+    return newOrder;
+}
